@@ -2,8 +2,8 @@
     "name": "metrogistics/laravel-azure-ad-oauth",
     "description": "Provides single-sign-on ability to Microsoft Azure Active Directory enabled apps.",
     "require": {
-        "php": ">=7.3",
-        "laravel/framework": "^8.0",
+        "php": ">=8.0",
+        "laravel/framework": "^9.0",
         "laravel/socialite": "^5.0",
         "guzzlehttp/guzzle": "^7.0.1"
     },
