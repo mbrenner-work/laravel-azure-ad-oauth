@@ -17,6 +17,7 @@ class UserFactory
         $user_class = config('azure-oath.user_class');
         $user_identificator = config('azure-oath.existing_user_field');
         $id_field = config('azure-oath.user_id_field');
+        $existing_user_field_in_azure = config('azure-oath.existing_user_field_in_azure');
 
         $user = $user_class::where($user_identificator, $azure_user->$existing_user_field_in_azure)
             ->first();

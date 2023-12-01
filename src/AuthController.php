@@ -18,6 +18,10 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user);
 
+        if (is_null($authUser)) {
+            abort(403);
+        }
+
         auth()->login($authUser, true);
 
         // session([
