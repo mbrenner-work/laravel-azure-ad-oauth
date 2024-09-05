@@ -18,6 +18,10 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user);
 
+        if (is_null($authUser)) {
+            abort(403);
+        }
+
         auth()->login($authUser, true);
 
         // session([
@@ -37,9 +41,13 @@ class AuthController extends Controller
         if ($authUser) {
             return $authUser;
         }
-
+    
         $UserFactory = new UserFactory();
 
-        return $UserFactory->convertAzureUser($user);
+        if (is_null(config('azure-oath.existing_user_field'))) {
+            return $UserFactory->convertAzureUser($user);
+        } else {
+            return $UserFactory->searchForExistingUser($user);
+        }
     }
 }

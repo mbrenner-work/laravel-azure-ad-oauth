@@ -33,6 +33,12 @@ return [
     // The users table database column to store the user SSO ID.
     'user_id_field' => 'azure_id',
 
+    // The user identificator field for existing users
+    // when it is used, there are no new users created
+    // but instead existing user's azure id is set
+    'existing_user_field' => 'email',
+    'existing_user_field_in_azure' => 'email',
+
     // How to map azure user fields to Laravel user fields.
     // Do not include the id field above.
     // AzureUserField => LaravelUserField

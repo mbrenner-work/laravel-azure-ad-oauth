@@ -12,6 +12,23 @@ class UserFactory
         $this->config = config('azure-oath');
     }
 
+    public function searchForExistingUser($azure_user)
+    {
+        $user_class = config('azure-oath.user_class');
+        $user_identificator = config('azure-oath.existing_user_field');
+        $id_field = config('azure-oath.user_id_field');
+        $existing_user_field_in_azure = config('azure-oath.existing_user_field_in_azure');
+
+        $user = $user_class::where($user_identificator, $azure_user->$existing_user_field_in_azure)
+            ->first();
+        
+        if ($user && is_null($user->$id_field)) {
+            $user->$id_field = $azure_user->id;
+        }
+        
+        return $user;
+    }
+
     public function convertAzureUser($azure_user)
     {
         $user_class = config('azure-oath.user_class');
