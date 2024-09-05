@@ -3,7 +3,7 @@
     "description": "Provides single-sign-on ability to Microsoft Azure Active Directory enabled apps.",
     "require": {
         "php": ">=7.4",
-        "laravel/framework": "^7.4|^8.0|^9.0|^10.0",
+        "laravel/framework": "^7.4|^8.0|^9.0|^10.0|^11.0",
         "laravel/socialite": "^5.0",
         "guzzlehttp/guzzle": "^7.0.1"
     },
