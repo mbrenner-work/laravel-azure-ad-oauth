@@ -28,7 +28,7 @@ class AuthController extends Controller
         //     'azure_user' => $user
         // ]);
 
-        return redirect(
+        return redirect()->intended(
             config('azure-oath.redirect_on_login')
         );
     }
